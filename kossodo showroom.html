@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden; /* Evitamos el scroll horizontal */
+        }
+
+        /* Estilo para el header */
+        #header {
+            background-image: url("https://mcusercontent.com/54ceb09f68aa4d01efa678660/images/7a04fd78-a303-9df4-6697-473553e73fa4.png");
+            background-size: cover; /* Ajustamos la imagen al tamaño del div */
+            background-repeat: no-repeat; /* Evitamos que se repita */
+            background-position: center top; /* Centramos la imagen y la posicionamos desde arriba */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* Establecemos la altura mínima al 100% del viewport */
+            margin: 0; /* Eliminamos el margen para que el fondo se extienda a lo ancho */
+            padding: 0; /* Eliminamos el padding para que el fondo se extienda a lo ancho */
+            transition: background-position 0.2s ease; /* Animación del efecto de scroll */
+        }
+
+        /* Estilo para el Body1 */
+        #body1 {
+            position: relative; /* Establecemos el posicionamiento relativo */
+            padding: 50px; /* Espacio alrededor del contenido */
+            text-align: center; /* Centramos el texto */
+            max-width: 900px; /* Ancho máximo del body1 */
+            margin: 0 auto; /* Centramos horizontalmente */
+        }
+
+        /* Estilo para la imagen de fondo de Body1 */
+        #body1::before {
+            content: ""; /* Agregamos contenido al elemento pseudo */
+            position: absolute; /* Posicionamiento absoluto */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://mcusercontent.com/54ceb09f68aa4d01efa678660/images/f12c0671-c990-fcaf-a663-48b9e672e676.jpg");
+            background-size: cover; /* Ajustamos la imagen al tamaño del div */
+            background-repeat: no-repeat; /* Evitamos que se repita */
+            background-position: center top; /* Centramos la imagen y la posicionamos desde arriba */
+            opacity: 0.05; /* Opacidad del 20% */
+            z-index: -1; /* Enviamos el elemento pseudo detrás del contenido real */
+        }
+
+        /* Estilo para la imagen dentro de Body1 */
+        #body1 img {
+            max-width: 100%; /* Aseguramos que la imagen ocupe todo el ancho del div */
+            margin-bottom: 20px; /* Espacio inferior */
+        }
+
+        /* Estilo para la sección de dos columnas */
+        .two-columns {
+            display: flex; /* Alineamos el contenido horizontalmente */
+            flex-wrap: wrap; /* Permitimos que los elementos se ajusten a la fila */
+            justify-content: center; /* Centramos horizontalmente */
+        }
+
+        /* Estilo para la columna de la imagen */
+        .column-image {
+            flex: 1; /* La columna ocupa el espacio disponible */
+            max-width: 400px; /* Limitamos el tamaño máximo de la imagen */
+            margin: 10px; /* Espacio entre columnas */
+        }
+
+        /* Estilo para la columna de texto */
+        .column-text {
+            flex: 1; /* La columna ocupa el espacio disponible */
+            max-width: 600px; /* Limitamos el tamaño máximo del texto */
+            margin: 10px; /* Espacio entre columnas */
+            text-align: left; /* Alineamos el texto a la izquierda */
+        }
+
+        /* Estilo para el cuadro de texto */
+        .text-box {
+            line-height: 1.5;
+            font-size: 14px;
+            border: 0px;
+            color: #707070;
+            box-sizing: border-box !important;
+            margin: 10px;
+            padding: 10px;
+            font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+            text-align: left;
+        }
+
+        /* Estilo para el div Body2 */
+         #body2 {
+            font-family: "Raleway", sans-serif; /* Cambiamos la fuente de texto */
+            padding: 10px 120px; /* Espaciado de 10px en top y bottom, 120px en left y right */
+            background-image: url("https://mcusercontent.com/54ceb09f68aa4d01efa678660/images/7a04fd78-a303-9df4-6697-473553e73fa4.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center top;
+        }
+
+        /* Estilo para el texto en el div Body2 */
+        #body2 h2 {
+			line-height: 1.5; /* Ajustamos el interlineado */
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        #body2 p {
+			line-height: 0; /* Ajustamos el interlineado */
+            color: #ffffff;
+        }
+
+        /* Estilo para el formulario */
+            .form-container {
+            font-family: "Raleway", sans-serif; /* Cambiamos la fuente de texto */
+            width: 70%; /* Ancho del formulario al 70% */
+            margin: 50px auto 0; /* Espaciado de 50px en top, centrado horizontalmente */
+        }
+
+         .form-container label {
+            margin-bottom: 10px; /* Espacio vertical de 10 píxeles entre la etiqueta y la caja */
+        }
+        .form-container input,
+        .form-container textarea{
+            width: 100%;
+            box-sizing: border-box;
+			height: 30px; /* Altura de los cuadros de rellenado */
+            border-radius: 20px; /* Agregamos el border-radius para hacer las cajas redondas */
+            border: none; /* Quitamos el borde blanco */
+        }
+        .form-container button {
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 20px; /* Agregamos el border-radius para hacer las cajas redondas */
+            border: none; /* Quitamos el borde blanco */
+        }
+
+        .form-container label {
+            color: #ffffff; /* Cambiamos el color del texto a blanco */
+            margin-bottom: 10px; /* Espacio vertical de 10 píxeles entre la etiqueta y la caja */
+        }
+
+        .form-container button {
+			
+            margin-top: 10px;
+            background-color: #3d3d5d;
+            color: #ffffff;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.2s ease; /* Agregamos transición para el cambio de color al pasar el cursor */
+        }
+
+        .form-container button:hover {
+            background-color: #ffffff; /* Cambiamos el color de fondo al pasar el cursor */
+            color: #3d3d5d;
+        }
+    </style>
+    <script>
+        // Aquí puedes agregar cualquier código JavaScript que necesites
+        // (si no es necesario, puedes omitir esta sección)
+        // La interactividad mediante JavaScript requeriría más código, si estás interesado en ese aspecto específico, puedo proporcionarte más detalles.
+    </script>
+</head>
+<body>
+    <!-- Agregar la clase "parallax-bg-img" al div "header" -->
+    <div id="header" class="parallax-bg-img">
+        <!-- Aquí se coloca el contenido del header -->
+        <div class="container">
+            <div class="column">
+                <img src="https://mcusercontent.com/54ceb09f68aa4d01efa678660/images/0d056cb2-06e5-0c55-014c-2ff4eda87123.png" alt="Imagen 1">
+            </div>
+            <div class="column">
+                <img src="https://mcusercontent.com/54ceb09f68aa4d01efa678660/images/95e2ca0f-70e1-5c9a-0626-44a13d9dfa11.png" alt="Imagen 2">
+            </div>
+            <div class="column">
+                <div class="horizontal-images">
+                    <img src="https://mcusercontent.com/54ceb09f68aa4d01efa678660/images/1b20d562-0f5b-d5dc-cf45-30f727dd8d47.png" alt="Imagen 3">
+                    <img src="https://mcusercontent.com/54ceb09f68aa4d01efa678660/images/d31e3afa-73b9-a424-9447-dbf82920fb90.png" alt="Imagen 4">
+                </div>
+            </div>
+            <div class="column">
+                <div class="horizontal-images">
+                    <img src="https://mcusercontent.com/54ceb09f68aa4d01efa678660/images/3c79eacb-16c8-5440-f326-39ba858572c4.png" alt="Imagen 5">
+                    <img src="https://mcusercontent.com/54ceb09f68aa4d01efa678660/images/070a1bef-a1f7-ff0a-877e-41ae9825a28c.png" alt="Imagen 6">
+                </div>
+            </div>
+            <!-- Nuevo div con una imagen debajo de la sección 5-6 -->
+            <div class="column">
+                <img src="https://mcusercontent.com/54ceb09f68aa4d01efa678660/images/e54cd50d-607b-d462-07ad-b8ce01711a88.png" alt="Nueva Imagen">
+            </div>
+        </div>
+    </div>
+    <div id="body1">
+        <!-- Imagen dentro de Body1 -->
+        <img src="https://mcusercontent.com/54ceb09f68aa4d01efa678660/images/7ac367cd-fa6d-1c09-8b65-371e7cc06e60.png" alt="Imagen Body1">
+        <!-- Sección de dos columnas -->
+        <div class="two-columns">
+            <!-- Columna de la imagen -->
+            <div class="column-image">
+                <img src="https://mcusercontent.com/54ceb09f68aa4d01efa678660/images/1dbaa64e-f9ec-2802-739c-708381296852.jpg" alt="Imagen 2">
+            </div>
+            <!-- Columna del texto -->
+            <div class="column-text">
+                <div class="text-box">
+                    <p>En Kossodo Nos dedicamos a 'facilitar y optimizar los procesos en su laboratorio', manteniéndonos al día con los avances científicos y tecnológicos.</p>
+                    <p>Nos complace invitarlos a nuestro exclusivo showroom, donde podrán apreciar una selección de equipos de alta calidad a precios exclusivos para su laboratorio.</p>
+                    <p>Este espacio ha sido diseñado para que nuestros clientes puedan conocer de cerca nuestras soluciones y cómo pueden llevar su laboratorio al siguiente nivel.</p>
+                    <p>No duden en visitarnos y obtener más información sobre nuestros productos y servicios.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="body2">
+        <!-- Contenido del Body2 -->
+             <div style="background-image: url('https://mcusercontent.com/54ceb09f68aa4d01efa678660/images/7a04fd78-a303-9df4-6697-473553e73fa4.png'); background-size: cover; background-repeat: no-repeat; background-position: center top; text-align: center;">
+            <h2 style="font-weight: bold; color: #ffffff;">¡Regístrate y disfruta de precios exclusivos en nuestro Showroom!</h2>
+            <p style="color: #ffffff; line-height: 0;">Sé parte de esta experiencia única y descubre una amplia selección de productos de alta calidad.</p>
+            <p style="color: #ffffff; line-height: 0;">¡Únete ahora y no te pierdas esta oportunidad!</p>
+        </div>
+        <div class="form-container">
+				<form action="enviar_formulario.php" method="post">
+                <label for="email">Correo Electrónico:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="fname">Nombres:</label><br>
+                <input type="text" id="fname" name="fname" required><br><br>
+                <label for="lname">Apellidos:</label><br>
+                <input type="text" id="lname" name="lname" required><br><br>
+                <label for="position">Cargo:</label><br>
+                <input type="text" id="position" name="position" required><br><br>
+                <label for="company">Empresa:</label><br>
+                <input type="text" id="company" name="company" required><br><br>
+                <label for="phone">Número de Contacto:</label><br>
+                <input type="tel" id="phone" name="phone" required><br><br>
+                <label for="message">Mensaje:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br><br>
+                <button type="submit">Registrate a Kossodo</button>
+            </form>
+        </div>
+    </div>
+	 <script>
+        function enviarFormulario() {
+            var email = document.getElementById("email").value;
+            var nombres = document.getElementById("fname").value;
+            var apellidos = document.getElementById("lname").value;
+
+            var mensaje = "Correo Electrónico: " + email + "\n";
+            mensaje += "Nombres: " + nombres + "\n";
+            mensaje += "Apellidos: " + apellidos + "\n";
+            // Agregar otros campos al mensaje si es necesario
+
+            window.open("mailto:gfxjef@gmail.com?subject=Solicitud de Registro&body=" + encodeURIComponent(mensaje));
+
+            document.getElementById("myForm").reset();
+
+            return false;
+        }
+    </script>
+</body>
+</html>
